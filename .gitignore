@@ -11,5 +11,6 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Weird macOS Stuff
+# Other,,, things
+bind_*_*.go
 .DS_Store

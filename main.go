@@ -10,6 +10,8 @@ import (
 	"github.com/asticode/go-astilectron-bootstrap"
 	"github.com/asticode/go-astilog"
 	"github.com/pkg/errors"
+
+	"./src/model"
 )
 
 const htmlAbout = `<strong>QuizGame</strong>@WhitmansIO<br>
@@ -18,7 +20,7 @@ Free to use, edit, and distribute at https://github.com/whitman-colm/quizzgame`
 var (
 	AppName string
 	BuiltAt string
-	debug   = flag.Bool("d", false, "enables the debug mode")
+	debug   = flag.Bool("d", true, "enables the debug mode")
 	w       *astilectron.Window
 )
 
@@ -34,8 +36,8 @@ func main() {
 		AssetDir: AssetDir,
 		AstilectronOptions: astilectron.Options{
 			AppName:            AppName,
-			AppIconDarwinPath:  "resources/icon.icns",
-			AppIconDefaultPath: "resources/icon.png",
+			AppIconDarwinPath:  "icons/icon.icns",
+			AppIconDefaultPath: "icons/icon.png",
 		},
 		Debug: *debug,
 		MenuOptions: []*astilectron.MenuItemOptions{{
@@ -71,10 +73,10 @@ func main() {
 			}()
 			return nil
 		},
-		RestoreAssets: RestoreAssets,
+		RestoreAssets:  RestoreAssets,
+		MessageHandler: model.HandleMessages,
 		Windows: []*bootstrap.Window{{
-			Homepage:       "index.html",
-			MessageHandler: handleMessages,
+			Homepage: "index.html",
 			Options: &astilectron.WindowOptions{
 				BackgroundColor: astilectron.PtrStr("#EEE8D5"),
 				Center:          astilectron.PtrBool(true),
