@@ -11,7 +11,7 @@ import (
 	"github.com/asticode/go-astilog"
 	"github.com/pkg/errors"
 
-	"./src/model"
+	"github.com/whitman-colm/quizgame/src/model"
 )
 
 const htmlAbout = `<strong>QuizGame</strong>@WhitmansIO<br>
