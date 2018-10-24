@@ -11,6 +11,8 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Other,,, things
-bind_*_*.go
-.DS_Store
+# Other things
+bind_*_*.go # bindings are massive text go source docs, they break git. and vim.
+.DS_Store # .DS_Store is how macOS Spotlight indexes files, but they still show up on git so.
+/build # built apps and executables.
+
